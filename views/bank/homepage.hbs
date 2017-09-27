@@ -1,0 +1,56 @@
+<h1>{{title}}</h1>
+ <section class="get">
+
+    <a href="/get-data"></a>
+    <div>
+        {{# each items }}
+            <article class="item">
+                <div><p>Welcome {{ this.email}}!</p></div>
+            </article>
+        {{/each}}
+    </div>
+
+</section>
+
+<div class="container" align="center" >
+    <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+            <img src="http://www.bankopening.co.uk/img/logo.png" alt="..." class="img-responsive">
+            <div class="caption" >
+
+                <p class="descrizione">Benvenuti nel portale bancario di Roccopoli. Qui potrai vedere varie informazioni riguardo il tuo profilo bancario.</p>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="col-md-4 col-md-offset-4">
+    <h1>Sign Up</h1>
+    <form action="/insert1" method="post">
+        <div class="form-group">
+            <label for="saldo">E-mail</label>
+            <input type="text" id="saldo" name="saldo" class="form-control">
+        </div>
+
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+
+
+</div>
+<section class="get">
+    <h3>Get Data</h3>
+    <a href="/get-data">Load data</a>
+    <div>
+            <article class="item">
+                <div>Email: {{ this.email}}</div>
+            </article>
+
+    </div>
+</section>
