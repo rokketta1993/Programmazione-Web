@@ -1,57 +1,144 @@
 var express = require('express');
 var router = express.Router();
 var csrf = require('csurf');
-var mongo = require('mongodb').MongoClient;
+
+
 var assert = require('assert');
 var passport = require('passport');
+var ObjectId = require('mongodb').ObjectID;
 
 var MongoClient = require('mongodb').MongoClient;
-
-
-
-var url = 'mongodb://localhost:27017/mattia';
+var url = 'mongodb://localhost:27017/bank';
 
 var csrfProtection = csrf();
 router.use(csrfProtection);
 
-/* GET home page. */
 
+//creazione collezione movimenti
+
+var insertMoviment = function(db, callback) {
+    db.collection('movimenti').insertOne( {
+        "Data" : "16/06/2017",
+        "Causale" : "Pagamento per cliente",
+        "Valuta" : "Euro",
+        "movimento_id" : "1221331",
+        "Importo": "5.245"
+    }, function(err, result) {
+        assert.equal(err, null);
+        console.log("Movimento inserito.");
+        callback();
+    });
+};
+
+MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+    insertMoviment(db, function() {
+        db.close();
+    });
+});
+
+//mostra movimento
+router.get('/get-mov', function(req, res, next){
+    var resultArray = [];
+    MongoClient.connect(url, function(err, db){
+        assert.equal(null, err);
+        var cursor = db.collection('movimenti').find();
+        cursor.forEach(function(doc, err){
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function(){
+            db.close();
+            res.render('bank/movimenti', {items: resultArray});
+        });
+    });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 router.get('/get-data', function(req, res, next){
    var resultArray = [];
-    mongo.connect(url, function(err, db){
+    MongoClient.connect(url, function(err, db){
        assert.equal(null, err);
-       var cursor = db.collection('users').find();
+       var cursor = db.collection('movimenti').find();
        cursor.forEach(function(doc, err){
            assert.equal(null, err);
            resultArray.push(doc);
        }, function(){
            db.close();
-           res.render('/', {items: resultArray});
+           res.render('/homepage', {items: resultArray});
        });
    });
-});
+});*/
 
-var port = process.env.PORT || 4000;
 
-/*
-router.post('/insert', function(req, res, next){
-    var item = {
-        email: req.body.email,
-        password: req.body.password,
-        saldo: req.body.saldo
+router.post('/insert', function(req, res){
+    var Data = req.body.Data;
 
-    };
 
-    mongo.connect(url, function(err, db){
+    MongoClient.connect(url, function(err, db){
         assert.equal(null, err);
-        db.collection('users').insertOne(item, function(err, result){
+        db.collection('movimenti').insertOne(item, function(err, result){
             assert.equal(null, err);
             console.log('Item inserted');
             db.close();
         });
     });
 
-    res.redirect('/get-data');
+    res.redirect('/bank/movimenti');
+});
+
+/* POST to Add User Service */
+/*
+router.post('/insert', function(req, res) {
+
+    // Set our internal DB variable
+    var db = req.db;
+
+    // Get our form values. These rely on the "name" attributes
+    var Data = req.body.Data;
+
+
+    // Set our collection
+    var collection = db.get('movimenti');
+
+    // Submit to the DB
+    collection.insert({
+        "Data" : Data
+    }, function (err, doc) {
+        if (err) {
+            // If it failed, return error
+            res.send("There was a problem adding the information to the database.");
+        }
+        else {
+            // And forward to success page
+            res.redirect("/bank/movimenti");
+        }
+    });
 });*/
 
 
@@ -60,10 +147,16 @@ router.post('/insert', function(req, res, next){
 
 
 
-
+/* GET home page. */
 router.get('/', function (req, res, next) {
   res.render('bank/index', { title: 'Banking Project' });
 });
+
+router.get('/get-data', function (req, res, next) {
+    res.render('bank/homepage', { title: 'Banking Project' });
+});
+
+
 
 router.get('/user/signup', function (req, res, next) {
     var messages = req.flash('error');
@@ -76,17 +169,24 @@ router.get('/bank/homepage', function (req, res, next) {
 
 router.post('/user/signup', passport.authenticate('local.signup',{
 
-
-
     successRedirect: '/user/profile',
     failureRedirect: '/user/signup',
     failureFlash: true
 }));
 
 
+
+
 router.get('/user/profile', function(req, res, next){
     res.render('user/profile');
 });
+
+
+
+router.get('/bank/movimenti', function(req, res, next){
+    res.render('bank/movimenti');
+});
+
 
 // GET /logout
 router.get('/logout', function(req, res, next) {
