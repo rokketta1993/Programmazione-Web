@@ -1,1 +1,51 @@
 <h1>Profilo utente</h1>
+
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+
+
+
+</head>
+<body>
+
+<section class="get">
+    <h3>Risultati</h3>
+    <a href="/get-prof">Aggiorna</a><br><br>
+</section>
+
+
+<div align="left">
+<label>
+        <h3>Dettagli account</h3>
+        {{# each items }}
+
+
+                <td>Nome: {{ this.Nome}}</td><br>
+                <td>Cognome: {{ this.Cognome}}</td><br>
+                <td>Data di nascita: {{ this.Data_di_nascita}}</td><br>
+                <td>Comune: {{ this.Comune}}</td><br>
+                <td>Residenza: {{ this.Residenza}}</td><br>
+                <td>Recapito: {{ this.Recapito}}</td>
+
+
+        {{/each}}
+</label>
+
+</div>
+<br>
+<div align="left">
+
+        <h3>Dettagli bilancio</h3>
+        {{# each items }}
+
+            <td>Saldo: {{ this.Saldo}}€</td>
+
+        {{/each}}
+
+</div>
+
+</body>
+</html>

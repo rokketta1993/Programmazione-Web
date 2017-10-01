@@ -48,11 +48,49 @@ router.get('/get-mov', function(req, res, next){
             resultArray.push(doc);
         }, function(){
             db.close();
-            res.render('bank/movimenti', {items: resultArray});
+            res.render('bank/movimenti', {items: resultArray, title: 'Movimenti'});
         });
     });
 });
 
+var insertUsers = function(db, callback) {
+    db.collection('users').insertOne( {
+        "Nome" : "Mattia",
+        "Cognome" : "Rocco",
+        "Data_di_nascita" : "01/01/1993",
+        "Comune" : "Porto San Giorgio",
+        "Residenza": "Via Enrico Fermi 40",
+        "Recapito": "3343456214",
+        "Saldo": "2.165"
+    }, function(err, result) {
+        assert.equal(err, null);
+        console.log("Utente inserito.");
+        callback();
+    });
+};
+
+MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+    insertUsers(db, function() {
+        db.close();
+    });
+});
+
+//mostra profilo
+router.get('/get-prof', function(req, res, next){
+    var resultArray = [];
+    MongoClient.connect(url, function(err, db){
+        assert.equal(null, err);
+        var cursor = db.collection('users').find();
+        cursor.forEach(function(doc, err){
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function(){
+            db.close();
+            res.render('user/profile', {items: resultArray, title:'Profilo Utente'});
+        });
+    });
+});
 
 
 
@@ -97,7 +135,7 @@ router.get('/get-data', function(req, res, next){
 
 
 router.post('/insert', function(req, res){
-    var Data = req.body.Data;
+    var data = req.body.Data;
 
 
     MongoClient.connect(url, function(err, db){
@@ -174,17 +212,18 @@ router.post('/user/signup', passport.authenticate('local.signup',{
     failureFlash: true
 }));
 
-
-
-
 router.get('/user/profile', function(req, res, next){
-    res.render('user/profile');
+    res.render('user/profile',{ title: 'Profilo Utente'});
 });
 
 
 
-router.get('/bank/movimenti', function(req, res, next){
-    res.render('bank/movimenti');
+router.get('/bank/movimenti', function(req, res, next) {
+    res.render('bank/movimenti', { title: 'Movimenti' });
+});
+
+router.get('/bank/grafico', function (req, res, next) {
+    res.render('bank/grafico', { title: 'Grafico' });
 });
 
 
@@ -201,6 +240,7 @@ router.get('/logout', function(req, res, next) {
         });
     }
 });
+
 
 
 module.exports = router;

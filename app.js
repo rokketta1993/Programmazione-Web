@@ -21,12 +21,13 @@ var MongoClient = require('mongodb').MongoClient;
 
 
 // Connect to the db
-MongoClient.connect("mongodb://localhost:27017/mattia", function(err, db) {
+MongoClient.connect("mongodb://localhost:27017/bank", function(err, db) {
     if(!err) {
         console.log("We are connected");
 
     }
 });
+
 var config = require('./config/passport');
 require('./config/passport');
 
@@ -50,6 +51,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'mysupersecret', resave: false, saveUninitialized: false}));
 app.use(flash());
+
+
+
 
 app.use(passport.initialize());
 app.use(passport.session());
