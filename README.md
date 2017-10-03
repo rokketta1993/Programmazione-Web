@@ -1,20 +1,14 @@
-# Node.js Loginapp
+# Node.js Banking-App
 
-This is a user login and registration app using Node.js, Express, Passport and Mongoose. It is part of the YouTube series [here](https://www.youtube.com/watch?v=Z1ktxiqyiLA)
-
+Questa è un app per controllare la situazione bancaria di un utente usando Node.js, Express, Passport and Studio3T.[here]-->sito
 ### Version
-1.1.0
+1.0
 
 ### Usage
 
 
-### Installation
+### Start-app
 
-Loginapp requires [Node.js](https://nodejs.org/) v4+ to run.
-
-```sh
-$ npm install
-```
 
 ```sh
 $ npm start
