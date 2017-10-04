@@ -6,20 +6,25 @@
 {{/if}}
 <form method="post" action="/users/pay">
     <div class="form-group">
-        <label>Nome</label>
-        <input type="text" class="form-control" placeholder="Nome" name="Nome">
+        <label>ID movimento</label>
+        <input type="number" class="form-control" placeholder="ID movimento" name="ID">
     </div>
     <div class="form-group">
-        <label>Cognome</label>
-        <input type="text" class="form-control" placeholder="Cognome" name="Cognome">
+        <label>Nome mittente</label>
+        <input type="text" class="form-control" placeholder="Nome Mittente" name="nomemit">
     </div>
     <div class="form-group">
-        <label>C.F.</label>
-        <input type="text" class="form-control" placeholder="codicef" name="codicef">
+        <label>Nome destinatario</label>
+        <input type="text" class="form-control" placeholder="Nome Destinatario" name="nomedes">
     </div>
+
     <div class="form-group">
         <label>Importo</label>
-        <input type="number" class="form-control" placeholder="Importo" name="Importo">
+        <input type="number" class="form-control" placeholder="Importo" name="importo">
+    </div>
+    <div class="form-group">
+        <label>Valuta</label>
+        <input type="text" class="form-control" placeholder="Euro o dollaro" name="valuta">
     </div>
     
     <button type="submit" class="btn btn-default">Submit</button>

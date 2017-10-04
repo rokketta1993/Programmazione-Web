@@ -22,6 +22,72 @@ router.get('/login', function(req, res){
 router.get('/pay', function(req, res){
     res.render('pagamento');
 });
+//Effettua pagamenti
+router.post('/pay', function(req,res, next){
+    var item = {
+    	ID:req.body.ID,
+    	nomemit:req.body.nomemit,
+		nomedes:req.body.nomedes,
+        importo:req.body.importo,
+		valuta:req.body.valuta
+    };
+    mongo.connect(url, function(err, db){
+        assert.equal(null, err);
+        db.collection('pagamenti').insertOne(item, function(err, result){
+            assert.equal(null, err);
+            console.log('Pagamento effettuato');
+            db.close();
+        });
+    });
+    req.flash('success_msg', 'Pagamento effettuato con successo');
+    res.redirect('/');
+});
+
+//Mostra pagamenti
+
+router.get('/show', function(req, res, next){
+    var resultArray = [];
+    mongo.connect(url, function(err, db){
+        assert.equal(null, err);
+        var cursor = db.collection('pagamenti').find();
+        cursor.forEach(function(doc, err){
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function(){
+            db.close();
+            res.render('mostrapag', {items: resultArray, title: 'Movimenti'});
+        });
+    });
+});
+router.get('/show', function(req, res){
+    res.render('mostrapag');
+});
+
+
+// Completa dati
+router.get('/insert', function(req, res) {
+    res.render('insert');
+});
+router.post('/insert', function(req,res, next){
+	var item = {
+		name:req.body.name,
+		cognome:req.body.cognome,
+		data: req.body.data,
+		luogo:req.body.luogo,
+		residenza: req.body.residenza,
+		codice: req.body.codice,
+		saldo:req.body.saldo
+	};
+	mongo.connect(url, function(err, db){
+		assert.equal(null, err);
+		db.collection('users').insertOne(item, function(err, result){
+			assert.equal(null, err);
+			console.log('Dati inseriti');
+			db.close();
+		});
+	});
+	res.redirect('profilo');
+});
 
 
 
@@ -29,6 +95,7 @@ router.get('/pay', function(req, res){
 // Registrazione Utente
 router.post('/register', function(req, res){
 	var name = req.body.name;
+
 	var username = req.body.username;
 	var email = req.body.email;
 	var username = req.body.username;
@@ -55,6 +122,7 @@ router.post('/register', function(req, res){
 	} else {
 		var newUser = new User({
 			name: name,
+
 			email:email,
 			username: username,
 			password: password

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+<h1>Ecco i tuoi movimenti bancari</h1>
+<div align="left">
+
+    <section class="get">
+        <h3>Risultati</h3>
+        <a href="/users/show">Aggiorna</a><br><br>
+    </section>
+
+
+    <div class="container">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID movimento</th>
+                <th>Nome mittente</th>
+                <th>Nome destinatario</th>
+                <th>Importo</th>
+                <th>Valuta</th>
+            </tr>
+
+            </thead><br>
+            {{# each items }}
+                <tbody>
+                <tr>
+                    <td>{{ this.ID}}</td>
+                    <td>{{ this.nomemit}}</td>
+                    <td>{{ this.nomedes}}</td>
+                    <td>{{ this.importo}}</td>
+                    <td>{{ this.valuta}}</td>
+
+                </tr>
+
+
+                </tbody>
+            {{/each}}
+        </table>
+    </div>
+</div>
+</body>
+
+
+</html>
