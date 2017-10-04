@@ -17,9 +17,10 @@
           <ul class="nav nav-pills pull-right">
 
             {{#if user}}
+                <li role="presentation"><a href="/users/pay">Pagamento</a></li>
                 <li role="presentation"><a href="/users/profilo">Profilo</a></li>
-              <li role="presentation"><a href="/">Homepage</a></li>
-              <li role="presentation"><a href="/users/logout">Esci</a></li>
+                <li role="presentation"><a href="/">Homepage</a></li>
+                <li role="presentation"><a href="/users/logout">Esci</a></li>
             {{else}}
               <li role="presentation"><a href="/users/login">Accedi</a></li>
               <li role="presentation"><a href="/users/register">Registrati</a></li>

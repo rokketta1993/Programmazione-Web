@@ -2,6 +2,9 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
+var mongo = require('mongodb');
+var url = 'mongodb://localhost:27017/bank';
+var assert = require('assert');
 
 var User = require('../models/user');
 
@@ -14,21 +17,29 @@ router.get('/register', function(req, res){
 router.get('/login', function(req, res){
 	res.render('login');
 });
-//Profilo
-router.get('/profilo', function(req, res){
-    res.render('profilo');
+
+//Pagamento
+router.get('/pay', function(req, res){
+    res.render('pagamento');
 });
 
-// Register User
+
+
+
+// Registrazione Utente
 router.post('/register', function(req, res){
 	var name = req.body.name;
+	var username = req.body.username;
 	var email = req.body.email;
 	var username = req.body.username;
 	var password = req.body.password;
 	var password2 = req.body.password2;
 
 	// Validation
-	req.checkBody('name', 'Name is required').notEmpty();
+	req.checkBody('name', 'Nome richiesto').notEmpty();
+
+
+
 	req.checkBody('email', 'Email is required').notEmpty();
 	req.checkBody('email', 'Email is not valid').isEmail();
 	req.checkBody('username', 'Username is required').notEmpty();
@@ -89,11 +100,33 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-router.post('/login',
-  passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
+router.post('/login', passport.authenticate('local',
+	{successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
   function(req, res) {
     res.redirect('/');
   });
+//Profilo
+
+//Show Profile
+
+router.get('/profilo', function(req, res, next){
+    var resultArray = [];
+    mongo.connect(url, function(err, db){
+        assert.equal(null, err);
+        var cursor = db.collection('users').find();
+        cursor.forEach(function(doc, err){
+            assert.equal(null, err);
+            resultArray.push(doc);
+        }, function(){
+            db.close();
+            res.render('profilo', {items: resultArray, title: 'Movimenti'});
+        });
+    });
+});
+
+
+
+
 
 router.get('/logout', function(req, res){
 	req.logout();

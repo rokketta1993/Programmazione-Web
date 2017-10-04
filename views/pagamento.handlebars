@@ -1,0 +1,26 @@
+<h2 class="page-header">Pagamento</h2>
+{{#if errors}}
+    {{#each errors}}
+        <div class="alert alert-danger">{{msg}}</div>
+    {{/each}}
+{{/if}}
+<form method="post" action="/users/pay">
+    <div class="form-group">
+        <label>Nome</label>
+        <input type="text" class="form-control" placeholder="Nome" name="Nome">
+    </div>
+    <div class="form-group">
+        <label>Cognome</label>
+        <input type="text" class="form-control" placeholder="Cognome" name="Cognome">
+    </div>
+    <div class="form-group">
+        <label>C.F.</label>
+        <input type="text" class="form-control" placeholder="codicef" name="codicef">
+    </div>
+    <div class="form-group">
+        <label>Importo</label>
+        <input type="number" class="form-control" placeholder="Importo" name="Importo">
+    </div>
+    
+    <button type="submit" class="btn btn-default">Submit</button>
+</form>

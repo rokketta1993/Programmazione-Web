@@ -10,15 +10,24 @@
 <div align="left">
     <label>
         <h3>Dettagli account</h3>
+        {{# each items}}
+            <td> Nome: {{ this.name}}</td><br>
+            <td> Username: {{ this.username}}</td><br>
+            <td> Email: {{ this.email}}</td><br>
+            <td> Data di nascita:</td><br>
+            <td> Residenza: </td><br>
+            <td> C.F.:</td><br>
+
+        {{/each}}
     </label>
 </div>
 <br>
     <div align="left">
         <label>
             <h3>Dettagli finanziari</h3>
-            {{# each items}}
-                <td> Nome: {{ this.name}}</td>
-            {{/each}}
+            <td> Saldo:</td><br>
+
+
         </label>
     </div>
 
