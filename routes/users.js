@@ -88,6 +88,10 @@ router.post('/insert', function(req,res, next){
 	});
 	res.redirect('profilo');
 });
+// Grafico
+router.get('/grafico', function(req, res){
+    res.render('grafico');
+});
 
 
 
