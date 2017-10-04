@@ -137,7 +137,7 @@ router.post('/register', function(req, res){
 			console.log(user);
 		});
 
-		req.flash('success_msg', 'You are registered and can now login');
+		req.flash('success_msg', 'Ti sei registrato e puoi effettuare il LogIn');
 
 		res.redirect('/users/login');
 	}
@@ -203,7 +203,7 @@ router.get('/profilo', function(req, res, next){
 router.get('/logout', function(req, res){
 	req.logout();
 
-	req.flash('success_msg', 'You are logged out');
+	req.flash('success_msg', 'LogOut effettuato.');
 
 	res.redirect('/users/login');
 });
