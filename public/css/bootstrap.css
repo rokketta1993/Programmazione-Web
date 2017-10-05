@@ -1,3 +1,5 @@
+
+
 /*!
  * Bootstrap v3.3.6 (http://getbootstrap.com)
  * Copyright 2011-2015 Twitter, Inc.
@@ -2262,9 +2264,9 @@ th {
   text-align: left;
 }
 .table {
-  width: 100%;
+  width: 97%;
   max-width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -6762,3 +6764,4 @@ button.close {
   }
 }
 
+   
