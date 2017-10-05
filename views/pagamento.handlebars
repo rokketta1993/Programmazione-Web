@@ -8,25 +8,48 @@
 <form method="post" action="/users/pay">
     <div class="form-group">
         <label>ID movimento</label>
-        <input type="number" class="form-control" placeholder="ID movimento" name="ID">
+        <input type="number" class="form-control" style="width: 300px;" placeholder="ID movimento" name="ID">
+    </div>
+    <div class="form-group">
+        <label>Tipologia operazione</label><br>
+        <select name="tipo">
+            <option value="Bonifico">Bonifico</option>
+            <option value="Pagamento">Pagamento</option>
+        </select>
+    </div>
+
+
+    <div class="form-group">
+        <label>Mese</label><br>
+        <select name="mese">
+            <option value="Gennaio">Gennaio</option>
+            <option value="Febbraio">Febbraio</option>
+            <option value="Marzo">Marzo</option>
+            <option value="Aprile">Aprile</option>
+            <option value="Maggio">Maggio</option>
+            <option value="Giugno">Giugno</option>
+            <option value="Luglio">Luglio</option>
+            <option value="Agosto">Agosto</option>
+            <option value="Settembre">Settembre</option>
+            <option value="Ottobre">Ottobre</option>
+            <option value="Novembre">Novembre</option>
+            <option value="Dicembre">Dicembre</option>
+        </select>
     </div>
     <div class="form-group">
         <label>Nome mittente</label>
-        <input type="text" class="form-control" placeholder="Nome Mittente" name="nomemit">
+        <input type="text" class="form-control" style="width: 300px;" placeholder="Nome Mittente" name="nomemit">
     </div>
     <div class="form-group">
         <label>Nome destinatario</label>
-        <input type="text" class="form-control" placeholder="Nome Destinatario" name="nomedes">
+        <input type="text" class="form-control" style="width: 300px;" placeholder="Nome Destinatario" name="nomedes">
     </div>
 
     <div class="form-group">
         <label>Importo</label>
-        <input type="number" class="form-control" placeholder="Importo" name="importo">
+        <input type="number" class="form-control" style="width: 300px;" placeholder="Importo" name="importo">
     </div>
-    <div class="form-group">
-        <label>Valuta</label>
-        <input type="text" class="form-control" placeholder="Euro o dollaro" name="valuta">
-    </div>
+
     
     <button type="submit" class="btn btn-default">Submit</button>
 </form>

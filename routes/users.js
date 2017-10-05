@@ -26,10 +26,12 @@ router.get('/pay', function(req, res){
 router.post('/pay', function(req,res, next){
     var item = {
     	ID:req.body.ID,
+		tipo:req.body.tipo,
     	nomemit:req.body.nomemit,
 		nomedes:req.body.nomedes,
+		mese:req.body.mese,
         importo:req.body.importo,
-		valuta:req.body.valuta
+
     };
     mongo.connect(url, function(err, db){
         assert.equal(null, err);

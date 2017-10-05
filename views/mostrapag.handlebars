@@ -24,10 +24,12 @@
             <thead>
             <tr>
                 <th>ID movimento</th>
+                <th>Tipo operazione</th>
+                <th>Mese</th>
                 <th>Nome mittente</th>
                 <th>Nome destinatario</th>
                 <th>Importo</th>
-                <th>Valuta</th>
+
             </tr>
 
             </thead><br>
@@ -35,10 +37,12 @@
                 <tbody>
                 <tr>
                     <td>{{ this.ID}}</td>
+                    <td>{{ this.tipo}}</td>
+                    <td>{{ this.mese}}</td>
                     <td>{{ this.nomemit}}</td>
                     <td>{{ this.nomedes}}</td>
-                    <td>{{ this.importo}}</td>
-                    <td>{{ this.valuta}}</td>
+                    <td>{{ this.importo}}€</td>
+
 
                 </tr>
 

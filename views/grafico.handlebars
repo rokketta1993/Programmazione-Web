@@ -120,14 +120,15 @@
 
 <canvas id="myChart" width="400" height="120"></canvas>
 <script>
+
     var ctx = document.getElementById("myChart").getContext('2d');
     var myChart = new Chart(ctx, {
         type: 'line',
         data: {
-            labels: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novermbre", "Dicembre"],
+            labels: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre"],
             datasets: [{
                 label: 'Saldo in €',
-                data: [1000, 800, 850, 600, 600, 300, 450, 600, 750, 770, 800, 800],
+                data: [1000, 800, 850, 600, 600, 300, 450, 600, 750, 770, 800],
                 backgroundColor: false,
                 borderColor: [
                     'rgba(255,99,132,1)',
@@ -139,7 +140,7 @@
                 ],
                 borderWidth: 1,
                 borderColor:'#207728',
-                lineTension:0,
+                lineTension:0.2,
                 hoverBorderWidth:1,
                 hoverBorderColor:'#207728',
                 pointBackgroundColor:'#771e37'
@@ -176,6 +177,40 @@
 
             },
         }
+
     });
+    init();
+
+    function init() {
+        // Chart declaration:
+        myChart = new Chart(ctx, {
+            type: chartType,
+            data: data,
+            options: options
+        });
+    }
+    function addData(){
+
+        myChart.data.datasets[0].data[11] = 900;
+
+        myChart.data.labels[11] = "Dicembre";
+        myChart.update();
+    }
+
+    function adjust2016() {
+        myChart.data.datasets[0].data[2] = 300;
+        myChart.update();
+    }
+
 </script>
+<div class="container">
+    <button type="button"
+            class="btn btn-success btn-md"
+            onclick="addData();">Aggiungi le ultime operazioni </button>
+    <button type="button"
+            class="btn btn-success btn-md"
+            onclick="adjust2016();">Detrai 400€ a Marzo </button>
+</div>
+
+
 </html>
