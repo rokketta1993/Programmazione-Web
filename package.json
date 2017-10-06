@@ -26,6 +26,7 @@
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",
+    "print.js": "^1.0.18",
     "serve-favicon": "^2.4.5"
   }
 }
