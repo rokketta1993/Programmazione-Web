@@ -15,6 +15,7 @@ router.get('/register', function(req, res){
 
 // Login
 router.get('/login', function(req, res){
+
 	res.render('login');
 });
 
@@ -33,6 +34,7 @@ router.post('/pay', function(req,res, next){
         importo:req.body.importo,
 
     };
+
     mongo.connect(url, function(err, db){
         assert.equal(null, err);
         db.collection('pagamenti').insertOne(item, function(err, result){
@@ -65,31 +67,6 @@ router.get('/show', function(req, res){
     res.render('mostrapag');
 });
 
-
-// Completa dati
-router.get('/insert', function(req, res) {
-    res.render('insert');
-});
-router.post('/insert', function(req,res, next){
-	var item = {
-		name:req.body.name,
-		cognome:req.body.cognome,
-		data: req.body.data,
-		luogo:req.body.luogo,
-		residenza: req.body.residenza,
-		codice: req.body.codice,
-		saldo:req.body.saldo
-	};
-	mongo.connect(url, function(err, db){
-		assert.equal(null, err);
-		db.collection('users').insertOne(item, function(err, result){
-			assert.equal(null, err);
-			console.log('Dati inseriti');
-			db.close();
-		});
-	});
-	res.redirect('profilo');
-});
 // Grafico
 router.get('/grafico', function(req, res){
     res.render('grafico');
@@ -101,7 +78,6 @@ router.get('/grafico', function(req, res){
 // Registrazione Utente
 router.post('/register', function(req, res){
 	var name = req.body.name;
-
 	var username = req.body.username;
 	var email = req.body.email;
 	var username = req.body.username;
@@ -110,14 +86,11 @@ router.post('/register', function(req, res){
 
 	// Validation
 	req.checkBody('name', 'Nome richiesto').notEmpty();
-
-
-
-	req.checkBody('email', 'Email is required').notEmpty();
-	req.checkBody('email', 'Email is not valid').isEmail();
-	req.checkBody('username', 'Username is required').notEmpty();
-	req.checkBody('password', 'Password is required').notEmpty();
-	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
+	req.checkBody('email', 'Email richiesta').notEmpty();
+	req.checkBody('email', 'Email non valida').isEmail();
+	req.checkBody('username', 'Username richiesto').notEmpty();
+	req.checkBody('password', 'Password richiesta').notEmpty();
+	req.checkBody('password2', 'Le password non corrispondono').equals(req.body.password);
 
 	var errors = req.validationErrors();
 
@@ -139,7 +112,7 @@ router.post('/register', function(req, res){
 			console.log(user);
 		});
 
-		req.flash('success_msg', 'Ti sei registrato e puoi effettuare il LogIn');
+		req.flash('success_msg', 'Ti sei registrato e puoi effettuare il Login');
 
 		res.redirect('/users/login');
 	}
@@ -150,7 +123,7 @@ passport.use(new LocalStrategy(
    User.getUserByUsername(username, function(err, user){
    	if(err) throw err;
    	if(!user){
-   		return done(null, false, {message: 'Unknown User'});
+   		return done(null, false, {message: 'Utente sconosciuto'});
    	}
 
    	User.comparePassword(password, user.password, function(err, isMatch){
@@ -158,7 +131,7 @@ passport.use(new LocalStrategy(
    		if(isMatch){
    			return done(null, user);
    		} else {
-   			return done(null, false, {message: 'Invalid password'});
+   			return done(null, false, {message: 'Passowrd non valida'});
    		}
    	});
    });
@@ -177,6 +150,7 @@ passport.deserializeUser(function(id, done) {
 router.post('/login', passport.authenticate('local',
 	{successRedirect:'/', failureRedirect:'/users/login',failureFlash: true}),
   function(req, res) {
+      req.flash('success_msg', 'Login effettuato.');
     res.redirect('/');
   });
 //Profilo
@@ -204,8 +178,6 @@ router.get('/profilo', function(req, res, next){
 
 router.get('/logout', function(req, res){
 	req.logout();
-
-	req.flash('success_msg', 'LogOut effettuato.');
 
 	res.redirect('/users/login');
 });
