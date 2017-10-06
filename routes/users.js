@@ -153,29 +153,8 @@ router.post('/login', passport.authenticate('local',
       req.flash('success_msg', 'Login effettuato.');
     res.redirect('/');
   });
-//Profilo
 
-//Show Profile
-
-router.get('/profilo', function(req, res, next){
-    var resultArray = [];
-    mongo.connect(url, function(err, db){
-        assert.equal(null, err);
-        var cursor = db.collection('users').find();
-        cursor.forEach(function(doc, err){
-            assert.equal(null, err);
-            resultArray.push(doc);
-        }, function(){
-            db.close();
-            res.render('profilo', {items: resultArray, title: 'Movimenti'});
-        });
-    });
-});
-
-
-
-
-
+//Logout
 router.get('/logout', function(req, res){
 	req.logout();
 
