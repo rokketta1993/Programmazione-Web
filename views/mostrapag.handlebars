@@ -8,19 +8,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
+        //stampa report
         $("#btnPrint").live("click", function () {
             var divContents = $("#dvContainer").html();
-            var printWindow = window.open('', '', 'height=400,width=800');
+            var printWindow = window.open('', '', 'height=500,width=800');
             printWindow.document.write('<html><head><title>Report movimenti</title>');
-            printWindow.document.write('</head> <body >');
+            printWindow.document.write('</head> <div align="center"> <img src="http://www.bankopening.co.uk/img/logo.png" alt="..." width="80px" class="img-responsive" ><h3>Movimenti bancari</h3></div> <body >');
             printWindow.document.write(divContents);
             printWindow.document.write('</body> </html>');
             printWindow.document.close();
             printWindow.print();
         });
     </script>
-
-
 
 </head>
 <body>
@@ -44,7 +43,6 @@
                 <th>Nome mittente</th>
                 <th>Nome destinatario</th>
                 <th>Importo</th>
-
             </tr>
 
             </thead><br>
@@ -57,27 +55,16 @@
                     <td>{{ this.nomemit}}</td>
                     <td>{{ this.nomedes}}</td>
                     <td>{{ this.importo}}€</td>
-
-
                 </tr>
-
-
                 </tbody>
             {{/each}}
         </table>
-    </div>
+    </div><br>
 
-
-
-<body>
 <form id="form1">
-
-    <input type="button" value="Stampa Report" id="btnPrint" />
+    <input type="button" value="Stampa Report " id="btnPrint" />
 </form>
-</body>
-
 
 </body>
-
 
 </html>
