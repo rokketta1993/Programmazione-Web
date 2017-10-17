@@ -6,7 +6,7 @@ Mattia Rocco    090376
 # NodeJs_Home-Banking_esempio
 Esempio di sito in Node.js, con: 
 - autenticazione JWT
-- Studio3T per gli schemi DB
+- Studio3T per gli schemi DB su porta 27017 di default
 - organizzazione route divisa in diversi Router di Express
 
 
@@ -56,7 +56,7 @@ Le API rispondo con un messaggio strutturato nel seguente modo
 
 
 # Codici restituiti dal server
-- server attivo sulla porta 5000 - il server si avvia su localhost:5000
+- server attivo su: http://localhost:5000 - il server si avvia su localhost:5000
 - Pagamento effettuato - dopo aver completato il form riguardante il pagamento
 
 
