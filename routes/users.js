@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var mongo = require('mongodb');
+var mongodb = require('mongodb');
 var url = 'mongodb://localhost:27017/bank';
 var assert = require('assert');
-
 var User = require('../models/user');
 
+var MongoClient = mongodb.MongoClient;
 // Register
 router.get('/register', function(req, res){
 	res.render('register');
@@ -35,7 +35,7 @@ router.post('/pay', function(req,res, next){
 
     };
 
-    mongo.connect(url, function(err, db){
+    MongoClient.connect(url, function(err, db){
         assert.equal(null, err);
         db.collection('pagamenti').insertOne(item, function(err, result){
             assert.equal(null, err);
@@ -51,7 +51,7 @@ router.post('/pay', function(req,res, next){
 
 router.get('/show', function(req, res, next){
     var resultArray = [];
-    mongo.connect(url, function(err, db){
+    MongoClient.connect(url, function(err, db){
         assert.equal(null, err);
         var cursor = db.collection('pagamenti').find();
         cursor.forEach(function(doc, err){

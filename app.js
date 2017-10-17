@@ -16,7 +16,7 @@ var LocalStrategy = require('passport-local').Strategy;
 
 
 
-mongoose.connect('mongodb://localhost/bank');
+mongoose.connect('mongodb://localhost/bank', { useMongoClient: true });
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -69,10 +69,10 @@ app.use(expressValidator({
 
 
 
-// Connect Flash
+// Connessione Flash
 app.use(flash());
 
-// Global Vars
+// Variabili globali
 app.use(function (req, res, next) {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
@@ -80,8 +80,77 @@ app.use(function (req, res, next) {
   res.locals.user = req.user || null;
   next();
 });
+//*******
+
+// Funzione per realizzare il Grafico
 
 
+//importazione mongodb package
+var mongodb = require("mongodb");
+
+
+var dbHost = "mongodb://localhost:27017/bank";
+
+//DB Object
+var dbObject;
+
+//Instanza di mongoDB per stabilire connessione
+var MongoClient = mongodb.MongoClient;
+
+//Connessione al database sulla porta 27017 di default
+
+MongoClient.connect(dbHost, function(err, db){
+    if ( err ) throw err;
+    dbObject = db;
+});
+
+function getData(responseObj){
+    //use the find() API and pass an empty query object to retrieve all records
+    dbObject.collection("pagamenti").find({}).toArray(function(err, docs){
+        if ( err ) throw err;
+        var meseArray = [];
+        var importoPrices = [];
+
+
+        for ( index in docs){
+            var doc = docs[index];
+            //category array
+            var mese = doc['mese'];
+            //series 1 values array
+            var importo = doc['importo'];
+
+            meseArray.push({"label": mese});
+            importoPrices.push({"value" : importo});
+
+        }
+
+        var dataset = [
+            {
+                "seriesname" : "Saldo",
+                "data" : importoPrices
+            }
+        ];
+
+        var response = {
+            "dataset" : dataset,
+            "categories" : meseArray
+        };
+        responseObj.json(response);
+    });
+}
+
+
+//Difinizione middleware per operare su file statici
+app.use('/public', express.static('public'));
+app.get("/fuelPrices", function(req, res){
+    getData(res);
+});
+app.get("/grafico", function(req, res){
+    res.render("grafico");
+});
+
+
+//*********************************************************************************
 
 app.use('/', routes);
 app.use('/users', users);
@@ -90,5 +159,5 @@ app.use('/users', users);
 app.set('port', (process.env.PORT || 5000));
 
 app.listen(app.get('port'), function(){
-	console.log('Server attivo sulla porta '+app.get('port'));
+	console.log('Server attivo su: http://localhost:'+app.get('port'));
 });

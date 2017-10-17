@@ -1,217 +1,50 @@
-<!--<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <title>My Chart.js Chart</title>
-</head>
-<body>
-<div class="container">
-    <canvas id="mioGrafico"></canvas>
-
-</div>
-
-<script>
-    var myChart = document.getElementById('mioGrafico').getContext('2d');
-
-    // Global Options
-    Chart.defaults.global.defaultFontFamily = 'String';
-    Chart.defaults.global.defaultFontSize = 12;
-    Chart.defaults.global.defaultFontColor = '#207728';
-
-    var massPopChart = new Chart(myChart, {
-        type:'line', // bar, horizontalBar, pie, line, doughnut, radar, polarArea
-        data:{
-            labels:['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno'],
-            datasets:[{
-                label:'Saldo in €',
-                data:[
-                    10000,
-                    7000,
-                    8000,
-                    4000,
-                    5000,
-                    9000
-                ],
-                //backgroundColor:'green',
-                backgroundColor:[
-                    'rgba(255, 99, 132, 0.6)',
-                    'rgba(54, 162, 235, 0.6)',
-                    'rgba(255, 206, 86, 0.6)',
-                    'rgba(75, 192, 192, 0.6)',
-                    'rgba(153, 102, 255, 0.6)',
-                    'rgba(255, 159, 64, 0.6)',
-                    'rgba(255, 99, 132, 0.6)'
-                ],
-                borderWidth:2,
-                borderColor:'#771e37',
-                hoverBorderWidth:6,
-                hoverBorderColor:'#000'
-            }]
-        },
-        options:{
-            title:{
-                display:true,
-                text:'Situazione bancaria semestrale',
-                fontSize:20
-            },
-            legend:{
-                display:true,
-                position:'right',
-                labels:{
-                    fontColor:'#000'
-                }
-            },
-            layout:{
-                padding:{
-                    left:50,
-                    right:0,
-                    bottom:0,
-                    top:0
-                }
-            },
-            tooltips:{
-                enabled:true
-            }
-        }
-    });
-</script>
-</body>
-</html>-->
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-    <link rel="stylesheet" href="gitbook/gitbook-plugin-chartjs/style.css">
-    <script src="gitbook/gitbook-plugin-chartjs/Chart.bundle.js"></script>
-    <script src="gitbook/gitbook-plugin-chartjs/chartjs-plugin-deferred.js"></script>
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js" charset="utf-8"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.0/handlebars.js"></script>
+    <script src="/public/js/bootstrap.js" charset="utf-8"></script>
+    <script src="/public/js/fusioncharts.js"></script>
+    <script src="/public/js/fusioncharts.charts.js"></script>
+    <script src="/public/js/fusioncharts.theme.zune.js"></script>
 </head>
-
-<div class="chartjs-wrapper">
-    <iframe class="chartjs-hidden-iframe"
-            style="display: block;
-            overflow: hidden;
-            border: 0px none;
-            margin: 0px;
-            top: 0px;
-            left: 0px;
-            bottom: 0px;
-            right: 0px;
-            height: 100%;
-            width: 100%;
-            position: absolute;
-            pointer-events: none;
-            z-index: -1;" tabindex="-1">
-
-    </iframe>
+<body>
+<div id="table-location">
 
 </div>
+<br/>
 
-<canvas id="myChart" width="400" height="122"></canvas>
-<script>
+<div id="chart-location">
 
-    var ctx = document.getElementById("myChart").getContext('2d');
-    var myChart = new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ["Gennaio", "Febbraio", "Marzo", "Aprile", "Maggio", "Giugno", "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre"],
-            datasets: [{
-                label: 'Saldo in €',
-                data: [1000, 800, 850, 600, 600, 300, 450, 600, 750, 770, 800],
-                backgroundColor: false,
-                borderColor: [
-                    'rgba(255,99,132,1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)'
-                ],
-                borderWidth: 1,
-                borderColor:'#207728',
-                lineTension:0.2,
-                hoverBorderWidth:1,
-                hoverBorderColor:'#207728',
-                pointBackgroundColor:'#771e37'
-
-
-            }]
-        },
-        options: {
-            title:{
-                display:true,
-                text:'Situazione bancaria annuale',
-                fontSize:20},
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            },
-            tooltips:{
-                enabled:true
-            },
-            legend:{
-                display:true,
-                position:'top',
-                fontColor:'#207728',
-                labels:{
-                    boxWidth:20,
-                    fontColor:'#771e37',
-                    fontSize:12,
-                    padding:20,
-                    usePointStyle:true
-                }
-
-            },
-        }
-
-    });
-    init();
-
-    function init() {
-        // Chart declaration:
-        myChart = new Chart(ctx, {
-            type: chartType,
-            data: data,
-            options: options
-        });
-    }
-    function addData(){
-
-        myChart.data.datasets[0].data[11] = 900;
-
-        myChart.data.labels[11] = "Dicembre";
-        myChart.update();
-    }
-
-    function adjust2016() {
-        myChart.data.datasets[0].data[2] = 300;
-        myChart.update();
-    }
-
+</div>
+<script id="tabular-template" type="text/html">
+    <h2>Tabella movimenti</h2>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td><b>Mese</b></td>
+            \{{#each categories}} <td>\{{label}}</td> \{{/each }}
+        </tr>
+        </thead>
+        <tbody>
+        \{{#each dataset}}
+        <tr>
+            <td><b>Importo</b></td>
+            \{{#each data}} <td>\{{value}}</td> \{{/each}}
+        </tr>
+        \{{/each}}
+        </tbody>
+    </table>
 </script>
-<div class="container">
-    <button type="button"
-            class="btn btn-success btn-md"
-            onclick="addData();">Aggiungi le ultime operazioni </button>
-    <button type="button"
-            class="btn btn-success btn-md"
-            onclick="adjust2016();">Detrai 400€ a Marzo </button>
-</div>
-<div align="left">
-    <a target="_blank" href="/users/show" style="color: #207728">Mostra movimenti</a>
-</div>
+
+
+
+</body>
+
+
+</html>
+
 </html>
