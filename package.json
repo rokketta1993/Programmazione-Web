@@ -5,7 +5,6 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
-
   },
   "repository": {
     "type": "git",
@@ -27,6 +26,7 @@
     "favicons": "^4.8.6",
     "mongodb": "*",
     "mongoose": "*",
+    "ng2-dropdown": "0.0.21",
     "passport": "*",
     "passport-http": "*",
     "passport-local": "*",

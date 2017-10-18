@@ -3,9 +3,10 @@ var router = express.Router();
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var mongodb = require('mongodb');
-var url = 'mongodb://localhost:27017/bank';
+var url = 'mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank';
 var assert = require('assert');
 var User = require('../models/user');
+
 
 var MongoClient = mongodb.MongoClient;
 // Register

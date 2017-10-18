@@ -11,14 +11,16 @@ var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
 
+
+
 var mongo = require('mongodb');
 var LocalStrategy = require('passport-local').Strategy;
 
+//uri: mongodb://mattia9319:ciaociao1@ds119345.mlab.com:19345/bank
 
-
-mongoose.connect('mongodb://localhost/bank', { useMongoClient: true });
+mongoose.connect('mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank', { useMongoClient: true });
 var db = mongoose.connection;
-
+mongoose.Promise = global.Promise;
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
@@ -89,7 +91,7 @@ app.use(function (req, res, next) {
 var mongodb = require("mongodb");
 
 
-var dbHost = "mongodb://localhost:27017/bank";
+var dbHost = "mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank";
 
 //DB Object
 var dbObject;
