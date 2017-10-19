@@ -10,9 +10,6 @@ var mongoose = require('mongoose');
 var session = require('express-session');
 var passport = require('passport');
 var flash = require('connect-flash');
-
-
-
 var mongo = require('mongodb');
 var LocalStrategy = require('passport-local').Strategy;
 
@@ -70,7 +67,6 @@ app.use(expressValidator({
 }));
 
 
-
 // Connessione Flash
 app.use(flash());
 
@@ -89,8 +85,6 @@ app.use(function (req, res, next) {
 
 //importazione mongodb package
 var mongodb = require("mongodb");
-
-
 var dbHost = "mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank";
 
 //DB Object
@@ -113,7 +107,6 @@ function getData(responseObj){
         var meseArray = [];
         var importoPrices = [];
 
-
         for ( index in docs){
             var doc = docs[index];
             //category array
@@ -123,7 +116,6 @@ function getData(responseObj){
 
             meseArray.push({"label": mese});
             importoPrices.push({"value" : importo});
-
         }
 
         var dataset = [
@@ -140,7 +132,6 @@ function getData(responseObj){
         responseObj.json(response);
     });
 }
-
 
 //Difinizione middleware per operare su file statici
 app.use('/public', express.static('public'));

@@ -36,9 +36,16 @@ body {
 
 /* Custom page footer */
 .footer {
-  padding-top: 50px;
+  padding-top: 20px;
   color: #207728;
   border-top: 1px solid #771e37;
+}
+.descrizione {
+  padding-top: 20px;
+  color: #207728;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: 700;
 }
 
 /* Customize container */
