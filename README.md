@@ -10,7 +10,7 @@ Esempio di sito in Node.js, con:
 
 ## Client di Riferimento
 - [link al repo GitHub](https://github.com/rokketta1993/Programmazione-Web)
-- [link all'App Heroku](https://dashboard.heroku.com/apps/homebanking-app)
+- [link all'App Heroku](https://homebanking-app.herokuapp.com/)
 - [link YouTube](wwww.youtube.com)
 
 
