@@ -11,7 +11,9 @@ Esempio di sito in Node.js, con:
 
 
 # Client di Riferimento
-- [link al repo](https://github.com/rokketta1993/Programmazione-Web)
+- [link al repo GitHub](https://github.com/rokketta1993/Programmazione-Web)
+- [link all'App Heroku](https://dashboard.heroku.com/apps/homebanking-app)
+- [link YouTube](wwww.youtube.com)
 
 
 
@@ -66,9 +68,10 @@ Le API rispondo con un messaggio strutturato nel seguente modo
 # Struttura file del server
 ```
 
---- favicon.ico           //icona dell'homepage
---- app.js                //file principale da eseguire
+--- README.md
+--- Procfile              //avvio per Heroku
 --- package.json
+--- app.js                //file principale da eseguire
 --+ views                 //pagine
   |--+ layouts
      |----layout.handlebars
@@ -87,6 +90,8 @@ Le API rispondo con un messaggio strutturato nel seguente modo
   |--+ css
   |--+ fonts
   |--+ js
+  
+--+ node_modules          //librerie
 
 --+ models                   //schemi modelli Mongoose
   |--- user.js
@@ -101,7 +106,11 @@ poi avviarlo con il comando
 oppure installate [https://github.com/foreverjs/forever](forever), per riavviare in automatico Node dopo una modifica, o dopo un crash. (-w sta per watch, cioè controlla se sono state salvate modifiche)  
 `forever -w start index.js`
 
+Per avviare l'applicazione su Heroku basta fare click su
+`Open App`
+# Wireframe
 
+- [Link ai Wireframe](https://drive.google.com/open?id=0B3kcv5P3VjYRWXhFbnNuaThDbnM)
 
 # Tutorial di riferimento Scotch.io
 - [JWT e Node](https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens)
