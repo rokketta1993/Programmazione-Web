@@ -1,5 +1,3 @@
-Questo file di readme, è stato scritto utilizzando il linguaggio [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
-
 # Studente:
 Mattia Rocco    090376
 
@@ -103,7 +101,7 @@ Prima di avviare il server, installare le dipendenze con il comando
 poi avviarlo con il comando  
 `npm start`
 
-oppure installate [https://github.com/foreverjs/forever], per riavviare in automatico Node dopo una modifica, o dopo un crash. (-w sta per watch, cioè controlla se sono state salvate modifiche)  
+oppure installate [FOREVER](https://github.com/foreverjs/forever), per riavviare in automatico Node dopo una modifica, o dopo un crash. (-w sta per watch, cioè controlla se sono state salvate modifiche)  
 `forever -w start index.js`
 
 Per avviare l'applicazione su Heroku basta fare click su
@@ -111,8 +109,7 @@ Per avviare l'applicazione su Heroku basta fare click su
 ## Wireframe
 
 
-- <a href="https://drive.google.com/open?id=0B3kcv5P3VjYRWXhFbnNuaThDbnM" target="_blank">Link ai Wireframe</a>
-- [Link ai Wireframe](https://drive.google.com/open?id=0B3kcv5P3VjYRWXhFbnNuaThDbnM" )
+- [Link ai Wireframe](https://drive.google.com/open?id=0B3kcv5P3VjYRWXhFbnNuaThDbnM )
 
 
 ## Tutorial di riferimento Scotch.io
@@ -120,3 +117,6 @@ Per avviare l'applicazione su Heroku basta fare click su
 - [Mongoose e Node](https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications)
 - [Organizzare le route](https://scotch.io/tutorials/keeping-api-routing-clean-using-express-routers)
 
+***
+
+Questo file di README è stato scritto utilizzando il linguaggio [Markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links)
