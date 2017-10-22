@@ -3,21 +3,21 @@ Questo file di readme, è stato scritto utilizzando il linguaggio [Markdown](htt
 # Studente:
 Mattia Rocco    090376
 
-# NodeJs_Home-Banking_esempio
+## NodeJs_Home-Banking_esempio
 Esempio di sito in Node.js, con: 
 - autenticazione JWT
 - Studio3T per gli schemi DB collegato con mLab
 - organizzazione route divisa in diversi Router di Express
 
 
-# Client di Riferimento
+## Client di Riferimento
 - [link al repo GitHub](https://github.com/rokketta1993/Programmazione-Web)
 - [link all'App Heroku](https://dashboard.heroku.com/apps/homebanking-app)
 - [link YouTube](wwww.youtube.com)
 
 
 
-# Traccia
+## Traccia
 1. Homebanking: 
    - come utente voglio poter accedere ad un’area privata tramite username e password
    - come utente voglio poter leggere i miei movimenti bancari
@@ -28,7 +28,7 @@ Esempio di sito in Node.js, con:
 
 
 
-# API esposte dal server:
+## API esposte dal server:
 
 /     
 GET   /  
@@ -57,7 +57,7 @@ Le API rispondo con un messaggio strutturato nel seguente modo
 
 
 
-# Codici restituiti dal server
+## Codici restituiti dal server
 - server attivo su: http://localhost:5000 - il server si avvia su localhost:5000
 - Dati registrazione nuovo utente
 - Pagamento effettuato - dopo aver completato il form riguardante il pagamento
@@ -65,7 +65,7 @@ Le API rispondo con un messaggio strutturato nel seguente modo
 
 
 
-# Struttura file del server
+## Struttura file del server
 ```
 
 --- README.md
@@ -103,16 +103,19 @@ Prima di avviare il server, installare le dipendenze con il comando
 poi avviarlo con il comando  
 `npm start`
 
-oppure installate [https://github.com/foreverjs/forever](forever), per riavviare in automatico Node dopo una modifica, o dopo un crash. (-w sta per watch, cioè controlla se sono state salvate modifiche)  
+oppure installate [https://github.com/foreverjs/forever], per riavviare in automatico Node dopo una modifica, o dopo un crash. (-w sta per watch, cioè controlla se sono state salvate modifiche)  
 `forever -w start index.js`
 
 Per avviare l'applicazione su Heroku basta fare click su
 `Open App`
-# Wireframe
+## Wireframe
 
-- [Link ai Wireframe](https://drive.google.com/open?id=0B3kcv5P3VjYRWXhFbnNuaThDbnM)
 
-# Tutorial di riferimento Scotch.io
+- <a href="https://drive.google.com/open?id=0B3kcv5P3VjYRWXhFbnNuaThDbnM" target="_blank">Link ai Wireframe</a>
+- [Link ai Wireframe](https://drive.google.com/open?id=0B3kcv5P3VjYRWXhFbnNuaThDbnM" )
+
+
+## Tutorial di riferimento Scotch.io
 - [JWT e Node](https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens)
 - [Mongoose e Node](https://scotch.io/tutorials/using-mongoosejs-in-node-js-and-mongodb-applications)
 - [Organizzare le route](https://scotch.io/tutorials/keeping-api-routing-clean-using-express-routers)
