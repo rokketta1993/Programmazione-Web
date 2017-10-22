@@ -10,15 +10,30 @@
     <script src="/public/js/fusioncharts.js"></script>
     <script src="/public/js/fusioncharts.charts.js"></script>
     <script src="/public/js/fusioncharts.theme.zune.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.2/modernizr.js"></script>
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js'></script>
+    <script type='text/javascript' src='loadImg.js'></script>
+
+    <script>
+        $(window).load(function() {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");;
+        });
+    </script>
+
 </head>
+
 <body>
+
 <div id="table-location">
 
 </div>
 <br/>
 
 <div id="chart-location">
-
+    <div class="se-pre-con"></div>
 </div>
 <script id="tabular-template" type="text/html">
     <h2>Tabella movimenti</h2>
