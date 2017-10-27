@@ -13,7 +13,7 @@
             var divContents = $("#dvContainer").html();
             var printWindow = window.open('', '', 'height=500,width=800');
             printWindow.document.write('<html><head><title>Report movimenti</title>');
-            printWindow.document.write('</head> <div align="center"> <img src="http://www.bankopening.co.uk/img/logo.png" alt="..." width="80px" class="img-responsive" ><h3>Movimenti bancari</h3></div> <body >');
+            printWindow.document.write('</head> <div align="center"> <img src="/public/css/bank-icon.jpg" alt="..." width="120px" class="img-responsive" ><h3>Movimenti bancari</h3></div> <body >');
             printWindow.document.write(divContents);
             printWindow.document.write('</body> </html>');
             printWindow.document.close();
