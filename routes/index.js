@@ -12,7 +12,7 @@ function ensureAuthenticated(req, res, next){
 		return next();
 	} else {
 
-		res.redirect('/users/login');
+		res.redirect('/users/home');
 	}
 }
 

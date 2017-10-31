@@ -33,7 +33,8 @@ GET   /
 POST  /
 
 /user    
-GET   /users/index  
+GET   /users/index
+GET   /users/home  
 GET   /users/register  
 GET   /users/login  
 GET   /users/logout  
@@ -74,6 +75,7 @@ Le API rispondo con un messaggio strutturato nel seguente modo
   |--+ layouts
      |----layout.handlebars
   |----grafico.handlebars
+  |----home.handlebars
   |----index.handlebars
   |----login.handlebars
   |----mostrapag.handlebars
@@ -104,8 +106,7 @@ poi avviarlo con il comando
 oppure installate [FOREVER](https://github.com/foreverjs/forever), per riavviare in automatico Node dopo una modifica, o dopo un crash. (-w sta per watch, cioè controlla se sono state salvate modifiche)  
 `forever -w start index.js`
 
-Per avviare l'applicazione su Heroku basta fare click su
-`Open App`
+
 ## Wireframe
 
 

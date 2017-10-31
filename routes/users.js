@@ -19,6 +19,10 @@ router.get('/login', function(req, res){
 
 	res.render('login');
 });
+//Pagina Principale
+router.get('/home', function(req, res){
+    res.render('home');
+});
 
 //Pagamento
 router.get('/pay', function(req, res){
