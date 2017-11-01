@@ -48,16 +48,12 @@ POST  /users/pay
 
 
 
-Le API rispondo con un messaggio strutturato nel seguente modo
-- caso di successo
-`{success: true, message: 'operazione completata',  data: {'token':'494jti4944'}}`
-- caso di errore
-`{ success: false, code: 'ERR_API_WRONG_PSW', message: 'autenticazione fallita' }`
+
 
 
 
 ## Codici restituiti dal server
-- server attivo su: http://localhost:5000 - il server si avvia su localhost:5000
+- Server attivo su: http://localhost:5000 - il server si avvia su localhost:5000
 - Dati registrazione nuovo utente
 - Pagamento effettuato - dopo aver completato il form riguardante il pagamento
 
@@ -110,7 +106,11 @@ oppure installate [FOREVER](https://github.com/foreverjs/forever), per riavviare
 ## Wireframe
 
 
-- [Link ai Wireframe](https://drive.google.com/open?id=0B3kcv5P3VjYRWXhFbnNuaThDbnM )
+- [Link ai Wireframe](https://drive.google.com/file/d/0B3kcv5P3VjYRaVRpNTdGOTdNVmM/view?usp=sharing)
+
+## Documento introduttivo
+
+- [PDF](https://drive.google.com/file/d/0B3kcv5P3VjYRWkl3NHlCZXI5VVU/view?usp=sharing)
 
 
 ## Tutorial di riferimento Scotch.io
