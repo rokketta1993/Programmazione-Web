@@ -84,7 +84,6 @@ POST  /users/pay
  
 --+ public                //file parte grafica
   |--+ css
-  |--+ fonts
   |--+ js
   
 --+ node_modules          //librerie
@@ -103,15 +102,12 @@ oppure installate [FOREVER](https://github.com/foreverjs/forever), per riavviare
 `forever -w start index.js`
 
 
-## Wireframe
 
+## Documenti 
 
-- [Link ai Wireframe](https://drive.google.com/file/d/0B3kcv5P3VjYRaVRpNTdGOTdNVmM/view?usp=sharing)
-
-## Documento introduttivo
-
-- [PDF](https://drive.google.com/file/d/0B3kcv5P3VjYRWkl3NHlCZXI5VVU/view?usp=sharing)
-
+- [INTRODUZIONE](https://drive.google.com/file/d/0B3kcv5P3VjYRWkl3NHlCZXI5VVU/view?usp=sharing)
+- [PRESENTAZIONE](https://drive.google.com/file/d/0B3kcv5P3VjYRS0dyRXZLUVF5eFk/view?usp=sharing)
+- [WIREFRAME](https://drive.google.com/file/d/0B3kcv5P3VjYRaVRpNTdGOTdNVmM/view?usp=sharing)
 
 ## Tutorial di riferimento Scotch.io
 - [JWT e Node](https://scotch.io/tutorials/authenticate-a-node-js-api-with-json-web-tokens)
