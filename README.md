@@ -33,8 +33,8 @@ GET   /
 POST  /
 
 /user    
-GET   /users/index
-GET   /users/home  
+GET   /users/index  
+GET   /users/home    
 GET   /users/register  
 GET   /users/login  
 GET   /users/logout  
