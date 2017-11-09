@@ -3,7 +3,7 @@ Mattia Rocco    090376
 
 ## NodeJs_Home-Banking_esempio
 Esempio di sito in Node.js, con: 
-- autenticazione JWT
+- autenticazione Username e Password
 - Studio3T per gli schemi DB collegato con mLab
 - organizzazione route divisa in diversi Router di Express
 

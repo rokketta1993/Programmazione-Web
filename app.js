@@ -1,7 +1,7 @@
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
-var exphbs = require('express-handlebars');
+var hbs = require('express-handlebars');
 var expressValidator = require('express-validator');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
@@ -26,8 +26,8 @@ var app = express();
 
 // View Engine
 app.set('views', path.join(__dirname, 'views'));
-app.engine('handlebars', exphbs({defaultLayout:'layout'}));
-app.set('view engine', 'handlebars');
+app.engine('hbs', hbs({extname: 'hbs', defaultLayout:'layout'}));
+app.set('view engine', 'hbs');
 
 // BodyParser Middleware
 app.use(bodyParser.json());
