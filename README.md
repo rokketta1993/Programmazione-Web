@@ -11,7 +11,7 @@ Esempio di sito in Node.js, con:
 ## Client di Riferimento
 - [link al repo GitHub](https://github.com/rokketta1993/Programmazione-Web)
 - [link all'App Heroku](https://homebanking-app.herokuapp.com/)
-- [link YouTube](wwww.youtube.com)
+- [link YouTube](https://youtu.be/0eB20c866n0)
 
 
 
@@ -69,14 +69,14 @@ POST  /users/pay
 --- app.js                //file principale da eseguire
 --+ views                 //pagine
   |--+ layouts
-     |----layout.handlebars
-  |----grafico.handlebars
-  |----home.handlebars
-  |----index.handlebars
-  |----login.handlebars
-  |----mostrapag.handlebars
-  |----pagamento.handlebars
-  |----register.handlebars
+     |----layout.hbs
+  |----grafico.hbs
+  |----home.hbs
+  |----index.hbs
+  |----login.hbs
+  |----mostrapag.hbs
+  |----pagamento.hbs
+  |----register.hbs
 	
 --+ routes
   |---- index.js      //funzioni autenticazione 

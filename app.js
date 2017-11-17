@@ -133,7 +133,7 @@ function getData(responseObj){
     });
 }
 
-//Difinizione middleware per operare su file statici
+//Definizione middleware per operare su file statici
 app.use('/public', express.static('public'));
 app.get("/fuelPrices", function(req, res){
     getData(res);
