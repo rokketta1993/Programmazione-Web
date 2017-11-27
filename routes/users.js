@@ -165,6 +165,7 @@ router.get('/logout', function(req, res){
 
     req.flash('success_msg', 'Logout effettuato con successo');
 	res.redirect('/');
+
 });
 
 

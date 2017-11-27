@@ -8,11 +8,50 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.0/handlebars.js"></script>
     <script src="node_modules/chart.js/src/chart.js"></script>
-    <script src="/public/js/fusioncharts_demo.js" charset="utf-8"></script>
+
     <script src="/public/js/fusioncharts.js"></script>
     <script src="/public/js/fusioncharts.charts.js"></script>
     <script src="/public/js/fusioncharts.theme.zune.js"></script>
+<script>
+    var chartData;
 
+$(function(){
+    $.ajax({
+
+        url: 'http://localhost:5000/fuelPrices',
+        type: 'GET',
+        success : function(data) {
+            chartData = data;
+            var template = Handlebars.compile($("#tabular-template").html());
+            $("#table-location").html(template(data));
+
+            var chartProperties = {
+                "caption": "Situazione bancaria",
+                "numberprefix": "€",
+                "xAxisName": "Mese",
+                "yAxisName": "Importo"
+            };
+
+            var categoriesArray = [{
+                "category" : data["categories"]
+            }];
+
+            var lineChart = new FusionCharts({
+                type: 'msline',
+                renderAt: 'chart-location',
+                width: '1000',
+                height: '600',
+                dataFormat: 'json',
+                dataSource: {
+                    chart: chartProperties,
+                    categories : categoriesArray,
+                    dataset : data["dataset"]
+                }
+            });
+            lineChart.render();
+        }
+    });
+});</script>
 
 
 
