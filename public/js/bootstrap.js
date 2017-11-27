@@ -2367,7 +2367,7 @@ if (typeof jQuery === 'undefined') {
     $(function(){
         $.ajax({
 
-            url: 'https://homebanking-app.herokuapp.com/grafico',
+            url: 'http://localhost:5000/fuelPrices',
             type: 'GET',
             success : function(data) {
                 chartData = data;
