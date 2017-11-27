@@ -91,7 +91,7 @@ app.use(function (req, res, next) {
 
 
 //importazione mongodb package
-var mongodb = require("mongodb").MongoClient;
+var mongodb = require("mongodb");
 var dbObject = "mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank";
 var url = "mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank";
 //DB Object
