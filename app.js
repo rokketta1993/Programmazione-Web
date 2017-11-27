@@ -14,6 +14,7 @@ var mongo = require('mongodb');
 var LocalStrategy = require('passport-local').Strategy;
 
 var jsdom = require('jsdom');
+var jquery = require('jquery');
 
 
 
