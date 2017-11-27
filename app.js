@@ -92,8 +92,8 @@ app.use(function (req, res, next) {
 
 //importazione mongodb package
 var mongodb = require("mongodb");
-var dbObject = "mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank";
-var url = "mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank";
+var dbHost = "mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank";
+
 //DB Object
 var dbObject;
 
@@ -102,7 +102,7 @@ var MongoClient = mongodb.MongoClient;
 
 //Connessione al database sulla porta 27017 di default
 
-MongoClient.connect(url, function(err, db){
+MongoClient.connect(dbHost, function(err, db){
     if ( err ) throw err;
     dbObject = db;
 });
@@ -156,7 +156,7 @@ app.get("/grafico", function(req, res){
 
 app.use('/', routes);
 app.use('/users', users);
-app.use('/bootstrap', express.static(__dirname + '/public/js/bootstrap'));
+
 
 
 // Set Port
