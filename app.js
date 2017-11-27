@@ -13,6 +13,10 @@ var flash = require('connect-flash');
 var mongo = require('mongodb');
 var LocalStrategy = require('passport-local').Strategy;
 
+var jsdom = require('jsdom');
+
+
+
 //uri: mongodb://mattia9319:ciaociao1@ds119345.mlab.com:19345/bank
 
 mongoose.connect('mongodb://mattiarocco9319:ciaociao1@ds119345.mlab.com:19345/bank', { useMongoClient: true });
@@ -150,6 +154,7 @@ app.get("/grafico", function(req, res){
 
 app.use('/', routes);
 app.use('/users', users);
+app.use('/bootstrap', express.static(__dirname + '/public/js/bootstrap'));
 
 
 // Set Port
